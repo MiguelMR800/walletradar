@@ -149,6 +149,22 @@
   color: #fff;
   text-shadow: 0 0 10px #fff;
 }
+
+h1 {
+  color: silver;
+  text-align: center;
+  text-shadow: 0 0 10px #aaa, 0 0 20px #ccc;
+  margin-top: 40px;
+}
+button:hover {
+  background: #222;
+  box-shadow: 0 0 20px silver;
+}
+.table-wrapper {
+  overflow-x: auto;
+  max-width: 100vw;
+  padding: 0 10px;
+}
 </style>
 <style>
 .modal {
@@ -199,15 +215,15 @@
 <div class="card" onclick="openModal('n26')">N26</div>
 <div class="card" onclick="openModal('curve')">Curve</div>
 </div>
-<table>
+<div class="table-wrapper"><table>
 <thead>
 <tr>
 <th>Feature</th>
-<th>Revolut</th>
-<th>Wise</th>
-<th>Monese</th>
-<th>N26</th>
-<th>Curve</th>
+<th><a href="https://www.revolut.com" style="color:lightblue;" target="_blank">Revolut</a></th>
+<th><a href="https://wise.com" style="color:lightblue;" target="_blank">Wise</a></th>
+<th><a href="https://monese.com" style="color:lightblue;" target="_blank">Monese</a></th>
+<th><a href="https://n26.com" style="color:lightblue;" target="_blank">N26</a></th>
+<th><a href="https://www.curve.com" style="color:lightblue;" target="_blank">Curve</a></th>
 </tr>
 </thead>
 <tbody>
@@ -232,7 +248,7 @@
 <td>⭐⭐⭐⭐☆</td><td>⭐⭐⭐⭐☆</td><td>⭐⭐⭐☆☆</td><td>⭐⭐⭐⭐☆</td><td>⭐⭐⭐☆☆</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 </main>
 <footer>
 <p class="disclaimer">This website contains affiliate links. If you click and make a purchase, we may earn a commission at no extra cost to you.</p>
