@@ -1,0 +1,186 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>WalletRadar.pro</title>
+<style>
+    body {
+      background-color: #0f0f0f;
+      color: #e0e0e0;
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background: linear-gradient(90deg, #111 0%, #1a1a1a 100%);
+      padding: 2em;
+      text-align: center;
+      color: #ccc;
+    }
+    .card-container {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1em;
+      margin: 2em;
+    }
+    .card {
+      background: #1a1a1a;
+      padding: 1.5em;
+      border-radius: 10px;
+      border: 1px solid #555;
+      width: 180px;
+      text-align: center;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+      color: #ccc;
+    }
+    .card:hover {
+      transform: scale(1.05);
+      background-color: #222;
+    }
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      padding: 2em;
+      background-color: #1b1b1b;
+      color: #e0e0e0;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 90%;
+      max-width: 600px;
+      border: 1px solid #666;
+      border-radius: 10px;
+      box-shadow: 0 0 30px rgba(192, 192, 192, 0.2);
+    }
+    .modal.active {
+      display: block;
+    }
+    .modal h2 {
+      color: #ccc;
+    }
+    .modal .close {
+      float: right;
+      font-size: 1.5em;
+      cursor: pointer;
+    }
+    .cta-button {
+      display: inline-block;
+      margin-top: 1em;
+      background: #bbb;
+      color: #111;
+      padding: 0.8em 1.5em;
+      border-radius: 5px;
+      text-decoration: none;
+    }
+    table {
+      width: 90%;
+      max-width: 800px;
+      margin: 3em auto;
+      border-collapse: collapse;
+      color: #ccc;
+      background-color: #1a1a1a;
+    }
+    th, td {
+      padding: 1em;
+      border: 1px solid #444;
+      text-align: center;
+    }
+    th {
+      background-color: #222;
+    }
+    footer {
+      text-align: center;
+      padding: 2em 1em;
+      font-size: 0.9em;
+      color: #777;
+    }
+  </style>
+</head>
+<body>
+<header>
+<h1><span style="pointer-events: none; text-decoration: none; color: inherit;">WalletRadar</span></h1>
+<p>Modern Alternatives to Traditional Banking</p>
+</header>
+<main>
+<div class="card-container">
+<div class="card" onclick="openModal('revolut')">Revolut</div>
+<div class="card" onclick="openModal('wise')">Wise</div>
+<div class="card" onclick="openModal('monese')">Monese</div>
+<div class="card" onclick="openModal('n26')">N26</div>
+<div class="card" onclick="openModal('curve')">Curve</div>
+</div>
+<div class="modal" id="revolut">
+<span class="close" onclick="closeModal('revolut')">×</span>
+<h2>Revolut</h2>
+<p><strong>Revolut</strong> is more than just a digital bank – it's a lifestyle app designed for modern money management...</p>
+<a class="cta-button" href="#" target="_blank">Try Revolut for Free</a>
+</div>
+<div class="modal" id="wise">
+<span class="close" onclick="closeModal('wise')">×</span>
+<h2>Wise</h2>
+<p><strong>Wise</strong> (formerly TransferWise) is the go-to platform for international money transfers with low fees...</p>
+<a class="cta-button" href="#" target="_blank">Open Wise Account</a>
+</div>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Revolut</th>
+<th>Wise</th>
+<th>Monese</th>
+<th>N26</th>
+<th>Curve</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Multi-Currency</td>
+<td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>❌</td>
+</tr>
+<tr>
+<td>Crypto Support</td>
+<td>✅</td><td>❌</td><td>❌</td><td>❌</td><td>⚠️</td>
+</tr>
+<tr>
+<td>Free Card</td>
+<td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td>
+</tr>
+<tr>
+<td>IBAN Provided</td>
+<td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>❌</td>
+</tr>
+<tr>
+<td>App Experience</td>
+<td>⭐⭐⭐⭐☆</td><td>⭐⭐⭐⭐☆</td><td>⭐⭐⭐☆☆</td><td>⭐⭐⭐⭐☆</td><td>⭐⭐⭐☆☆</td>
+</tr>
+</tbody>
+</table>
+</main>
+<footer>
+<p class="disclaimer">This website contains affiliate links. If you click and make a purchase, we may earn a commission at no extra cost to you.</p>
+<p class="legal">WalletRadar.pro is not a financial institution and does not provide financial advice. Always do your own research before making financial decisions.</p>
+</footer>
+<script>
+    function openModal(id) {
+      document.querySelectorAll('.modal').forEach(modal => modal.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+    }
+    function closeModal(id) {
+      document.getElementById(id).classList.remove('active');
+    }
+    window.onclick = function(event) {
+      document.querySelectorAll('.modal').forEach(modal => {
+        if (event.target === modal) {
+          modal.classList.remove('active');
+        }
+      });
+    };
+  </script>
+</body>
+</html>
