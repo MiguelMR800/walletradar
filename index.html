@@ -101,7 +101,42 @@
       color: #777;
     }
   </style>
-</head>
+<style>
+.modal {
+    position: fixed;
+    z-index: 9999;
+    left: 0; top: 0;
+    width: 100%; height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.8);
+    animation: fadeIn 0.3s;
+}
+.modal-content {
+    background-color: #1c1c1c;
+    margin: 10% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 90%;
+    max-width: 500px;
+    color: #ccc;
+    border-radius: 8px;
+    box-shadow: 0 0 10px #666;
+}
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 24px;
+    font-weight: bold;
+}
+.close:hover, .close:focus {
+    color: #fff;
+    text-decoration: none;
+    cursor: pointer;
+}
+@keyframes fadeIn {
+    from {opacity: 0} to {opacity: 1}
+}
+</style></head>
 <body>
 <header>
 <h1><span style="pointer-events: none; text-decoration: none; color: inherit;">WalletRadar</span></h1>
@@ -115,18 +150,8 @@
 <div class="card" onclick="openModal('n26')">N26</div>
 <div class="card" onclick="openModal('curve')">Curve</div>
 </div>
-<div class="modal" id="revolut">
-<span class="close" onclick="closeModal('revolut')">×</span>
-<h2>Revolut</h2>
-<p><strong>Revolut</strong> is more than just a digital bank – it's a lifestyle app designed for modern money management...</p>
-<a class="cta-button" href="#" target="_blank">Try Revolut for Free</a>
-</div>
-<div class="modal" id="wise">
-<span class="close" onclick="closeModal('wise')">×</span>
-<h2>Wise</h2>
-<p><strong>Wise</strong> (formerly TransferWise) is the go-to platform for international money transfers with low fees...</p>
-<a class="cta-button" href="#" target="_blank">Open Wise Account</a>
-</div>
+
+
 <table>
 <thead>
 <tr>
@@ -182,5 +207,47 @@
       });
     };
   </script>
-</body>
+<div id="modals"><div class="modal" id="revolut-modal" style="display:none">
+<div class="modal-content">
+<span class="close" onclick="closeModal('revolut-modal')">×</span>
+<h2>Revolut</h2>
+<p><strong>Revolut</strong> is more than a bank – it’s a fintech super app. With multi-currency accounts, crypto access, budgeting tools, and instant global transfers, it’s ideal for travelers and digital nomads. It offers both free and premium accounts. Want to promote Revolut? You can join their affiliate program via Impact.com. Great for monetizing finance blogs or YouTube channels.</p>
+</div>
+</div><div class="modal" id="wise-modal" style="display:none">
+<div class="modal-content">
+<span class="close" onclick="closeModal('wise-modal')">×</span>
+<h2>Wise</h2>
+<p><strong>Wise</strong> (formerly TransferWise) is designed for affordable international money transfers. Their borderless account supports over 50 currencies and offers real mid-market exchange rates. If you're new to fintech or looking to save on fees, Wise is a solid pick. Their affiliate program is also available on Impact.com and pays for referrals with verified transactions.</p>
+</div>
+</div><div class="modal" id="monese-modal" style="display:none">
+<div class="modal-content">
+<span class="close" onclick="closeModal('monese-modal')">×</span>
+<h2>Monese</h2>
+<p><strong>Monese</strong> provides instant-access accounts without proof of address. Great for expats, students, and frequent movers in Europe. Features include GBP and EUR accounts, mobile budgeting tools, and optional cards. Monetize your audience by joining Monese's affiliate program via Impact.com – ideal for international lifestyle creators.</p>
+</div>
+</div><div class="modal" id="n26-modal" style="display:none">
+<div class="modal-content">
+<span class="close" onclick="closeModal('n26-modal')">×</span>
+<h2>N26</h2>
+<p><strong>N26</strong> is a sleek, mobile-first bank based in Germany. It combines modern app UI with full banking features, including IBAN accounts, instant notifications, and smart savings. N26 is perfect for freelancers and EU residents. Their affiliate program is on Awin.com and offers attractive rewards per signup.</p>
+</div>
+</div><div class="modal" id="curve-modal" style="display:none">
+<div class="modal-content">
+<span class="close" onclick="closeModal('curve-modal')">×</span>
+<h2>Curve</h2>
+<p><strong>Curve</strong> lets you combine multiple bank cards into one and offers cashback, travel perks, and spending insights. A unique feature is ‘Go Back in Time’ to move past transactions. Curve is good for finance-savvy users who want control and rewards. Promote Curve through Awin.com’s affiliate platform.</p>
+</div>
+</div></div><script>
+function openModal(id) {
+    document.getElementById(id).style.display = 'block';
+}
+function closeModal(id) {
+    document.getElementById(id).style.display = 'none';
+}
+window.onclick = function(event) {
+    document.querySelectorAll('.modal').forEach(modal => {
+        if (event.target == modal) modal.style.display = 'none';
+    });
+}
+</script></body>
 </html>
