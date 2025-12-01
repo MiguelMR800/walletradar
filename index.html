@@ -1,318 +1,401 @@
-
 <!DOCTYPE html>
-
-<html lang="en">
+<html lang="fi">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>WalletRadar.pro</title>
-<style>
+  <meta charset="utf-8">
+  <title>WalletRadar – Revolut kortti ja moderni pankkivaihtoehto</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="WalletRadar: neutraali suomenkielinen esittely Revolutista – moderni pankkisovellus matkailuun, arkeen ja nuorille.">
+  <style>
+    :root {
+      --bg: #000000;
+      --fg: #ffffff;
+      --muted: #9ca3af;
+      --accent: #22c55e;
+      --radius-pill: 999px;
+      --radius-card: 32px;
+      --max-w: 960px;
+    }
+
+    * { box-sizing: border-box; }
+
     body {
-      background-color: #0f0f0f;
-      color: #e0e0e0;
-      font-family: 'Segoe UI', sans-serif;
       margin: 0;
-      padding: 0;
+      min-height: 100vh;
+      font-family: -apple-system, BlinkMacSystemFont, system-ui, "SF Pro Text", "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--fg);
+      -webkit-font-smoothing: antialiased;
     }
-    header {
-      background: linear-gradient(90deg, #111 0%, #1a1a1a 100%);
-      padding: 2em;
-      text-align: center;
-      color: #ccc;
+
+    a { color: inherit; text-decoration: none; }
+
+    .page {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 1.25rem 1.25rem 3rem;
     }
-    .card-container {
+
+    /* Header */
+    .header {
       display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: .5rem 0 1.5rem;
+    }
+    .brand {
+      font-weight: 700;
+      letter-spacing: .04em;
+      font-size: .85rem;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .tag {
+      font-size: .75rem;
+      padding: .3rem .8rem;
+      border-radius: 999px;
+      border: 1px solid #27272a;
+      color: var(--muted);
+    }
+
+    /* Hero */
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0,1.4fr) minmax(0,1.1fr);
+      gap: 2rem;
+      align-items: center;
+      padding-bottom: 2.5rem;
+      border-bottom: 1px solid #18181b;
+    }
+
+    .hero-title {
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      line-height: 1.05;
+      letter-spacing: -0.05em;
+      margin-bottom: .75rem;
+    }
+
+    .hero-sub {
+      font-size: .98rem;
+      color: var(--muted);
+      max-width: 24rem;
+    }
+
+    .hero-cta {
+      margin-top: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: .5rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
       justify-content: center;
+      padding: .8rem 1.6rem;
+      border-radius: var(--radius-pill);
+      border: 1px solid #27272a;
+      background: #ffffff;
+      color: #000000;
+      font-size: .95rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: transform .08s ease, box-shadow .08s ease, background .12s ease, color .12s ease;
+      white-space: nowrap;
+    }
+    .btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 18px 45px rgba(15,23,42,.55);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--fg);
+      border-color: #3f3f46;
+    }
+    .btn-outline:hover {
+      background: #111827;
+    }
+
+    .hero-note {
+      font-size: .75rem;
+      color: var(--muted);
+      max-width: 26rem;
+    }
+
+    .hero-card {
+      border-radius: var(--radius-card);
+      background: radial-gradient(circle at top left, #111827, #020617 60%, #000000);
+      padding: 1.6rem 1.4rem;
+      border: 1px solid #27272a;
+      position: relative;
+      overflow: hidden;
+    }
+    .chip {
+      position: absolute;
+      right: -40px;
+      bottom: -40px;
+      width: 220px;
+      height: 220px;
+      background: conic-gradient(from 210deg, #22c55e, #22d3ee, #6366f1, #22c55e);
+      opacity: .75;
+      filter: blur(4px);
+    }
+    .hero-card h2 {
+      font-size: 1.05rem;
+      margin: 0 0 .6rem;
+    }
+    .hero-list {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 1.2rem;
+      font-size: .9rem;
+    }
+    .hero-list li {
+      margin-bottom: .35rem;
+      color: var(--muted);
+    }
+
+    /* Sections */
+    .section {
+      padding: 2.5rem 0 0;
+    }
+    .section h2 {
+      font-size: 1.4rem;
+      margin-bottom: .6rem;
+    }
+    .section p.lead {
+      color: var(--muted);
+      max-width: 32rem;
+      font-size: .9rem;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3,minmax(0,1fr));
+      gap: 1.2rem;
+      margin-top: 1.8rem;
+    }
+
+    .feature {
+      border-radius: 20px;
+      padding: 1.1rem 1.1rem 1.2rem;
+      background: #050508;
+      border: 1px solid #18181b;
+      font-size: .9rem;
+    }
+    .feature h3 {
+      font-size: .98rem;
+      margin: 0 0 .4rem;
+    }
+    .feature p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.4;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      border-radius: 999px;
+      font-size: .7rem;
+      padding: .15rem .55rem;
+      background: #111827;
+      color: var(--muted);
+      margin-bottom: .45rem;
+    }
+
+    .pill-row {
+      display: flex;
       flex-wrap: wrap;
-      gap: 1em;
-      margin: 2em;
+      gap: .4rem;
+      margin-top: .9rem;
     }
-    .card {
-      background: #1a1a1a;
-      padding: 1.5em;
-      border-radius: 10px;
-      border: 1px solid #555;
-      width: 180px;
-      text-align: center;
-      cursor: pointer;
-      transition: transform 0.3s ease;
-      color: #ccc;
+    .pill {
+      padding: .25rem .7rem;
+      border-radius: 999px;
+      border: 1px solid #27272a;
+      font-size: .75rem;
+      color: var(--muted);
     }
-    .card:hover {
-      transform: scale(1.05);
-      background-color: #222;
+
+    /* Compare strip */
+    .compare {
+      margin-top: 2.2rem;
+      border-radius: 24px;
+      border: 1px solid #18181b;
+      padding: 1.2rem 1.2rem 1.3rem;
+      background: #050508;
+      font-size: .86rem;
+      display: grid;
+      grid-template-columns: minmax(0,1.1fr) minmax(0,1.3fr);
+      gap: 1rem;
+      align-items: center;
     }
-    .modal {
-      display: none;
-      position: fixed;
-      z-index: 1000;
-      padding: 2em;
-      background-color: #1b1b1b;
-      color: #e0e0e0;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 90%;
-      max-width: 600px;
-      border: 1px solid #666;
-      border-radius: 10px;
-      box-shadow: 0 0 30px rgba(192, 192, 192, 0.2);
+    .compare ul {
+      margin: .35rem 0 0;
+      padding-left: 1.1rem;
+      color: var(--muted);
     }
-    .modal.active {
-      display: block;
+    .compare strong { color: #f9fafb; }
+
+    .compare-highlight {
+      border-left: 1px solid #27272a;
+      padding-left: 1.2rem;
     }
-    .modal h2 {
-      color: #ccc;
-    }
-    .modal .close {
-      float: right;
-      font-size: 1.5em;
-      cursor: pointer;
-    }
-    .cta-button {
-      display: inline-block;
-      margin-top: 1em;
-      background: #bbb;
-      color: #111;
-      padding: 0.8em 1.5em;
-      border-radius: 5px;
-      text-decoration: none;
-    }
-    table {
-      width: 90%;
-      max-width: 800px;
-      margin: 3em auto;
-      border-collapse: collapse;
-      color: #ccc;
-      background-color: #1a1a1a;
-    }
-    th, td {
-      padding: 1em;
-      border: 1px solid #444;
-      text-align: center;
-    }
-    th {
-      background-color: #222;
-    }
+
+    /* Footer */
     footer {
-      text-align: center;
-      padding: 2em 1em;
-      font-size: 0.9em;
-      color: #777;
+      margin-top: 3rem;
+      border-top: 1px solid #18181b;
+      padding-top: 1.2rem;
+      font-size: .75rem;
+      color: var(--muted);
     }
-  
 
-.modal {
-  position: fixed;
-  z-index: 9999;
-  left: 0; top: 0;
-  width: 100%; height: 100%;
-  background-color: rgba(0, 0, 0, 0.85);
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.4s ease;
-}
-.modal.active {
-  opacity: 1;
-  pointer-events: auto;
-}
-.modal-content {
-  background: radial-gradient(ellipse at top left, #222, #111);
-  border: 1px solid #444;
-  border-radius: 10px;
-  padding: 20px;
-  color: #ddd;
-  box-shadow: 0 0 20px #888;
-  width: 90%;
-  max-width: 600px;
-  margin: 10% auto;
-  animation: zoomFade 0.3s ease;
-}
-@keyframes zoomFade {
-  from {
-    transform: scale(0.9);
-    opacity: 0;
-  }
-  to {
-    transform: scale(1);
-    opacity: 1;
-  }
-}
-.close {
-  color: #aaa;
-  float: right;
-  font-size: 24px;
-  font-weight: bold;
-  cursor: pointer;
-}
-.close:hover {
-  color: #fff;
-  text-shadow: 0 0 10px #fff;
-}
-
-h1 {
-  color: silver;
-  text-align: center;
-  text-shadow: 0 0 10px #aaa, 0 0 20px #ccc;
-  margin-top: 40px;
-}
-button:hover {
-  background: #222;
-  box-shadow: 0 0 20px silver;
-}
-.table-wrapper {
-  overflow-x: auto;
-  max-width: 100vw;
-  padding: 0 10px;
-}
-</style>
-<style>
-.modal {
-    position: fixed;
-    z-index: 9999;
-    left: 0; top: 0;
-    width: 100%; height: 100%;
-    overflow: auto;
-    background-color: rgba(0,0,0,0.8);
-    animation: fadeIn 0.3s;
-}
-.modal-content {
-    background-color: #1c1c1c;
-    margin: 10% auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 90%;
-    max-width: 500px;
-    color: #ccc;
-    border-radius: 8px;
-    box-shadow: 0 0 10px #666;
-}
-.close {
-    color: #aaa;
-    float: right;
-    font-size: 24px;
-    font-weight: bold;
-}
-.close:hover, .close:focus {
-    color: #fff;
-    text-decoration: none;
-    cursor: pointer;
-}
-@keyframes fadeIn {
-    from {opacity: 0} to {opacity: 1}
-}
-</style></head>
+    @media (max-width: 860px) {
+      .hero {
+        grid-template-columns: minmax(0,1fr);
+      }
+      .hero-card {
+        order: -1;
+      }
+      .grid {
+        grid-template-columns: minmax(0,1fr);
+      }
+      .compare {
+        grid-template-columns: minmax(0,1fr);
+      }
+      .compare-highlight {
+        border-left: none;
+        padding-left: 0;
+        border-top: 1px solid #27272a;
+        padding-top: 1rem;
+      }
+    }
+  </style>
+</head>
 <body>
-<header>
-<h1><span style="pointer-events: none; text-decoration: none; color: inherit;">WalletRadar</span></h1>
-<p>Modern Alternatives to Traditional Banking</p>
-</header>
-<main>
-<div class="card-container">
-<div class="card" onclick="openModal('revolut')">Revolut</div>
-<div class="card" onclick="openModal('wise')">Wise</div>
-<div class="card" onclick="openModal('monese')">Monese</div>
-<div class="card" onclick="openModal('n26')">N26</div>
-<div class="card" onclick="openModal('curve')">Curve</div>
-</div>
-<div class="table-wrapper"><table>
-<thead>
-<tr>
-<th>Feature</th>
-<th><a href="https://www.revolut.com" style="color:lightblue;" target="_blank">Revolut</a></th>
-<th><a href="https://wise.com" style="color:lightblue;" target="_blank">Wise</a></th>
-<th><a href="https://monese.com" style="color:lightblue;" target="_blank">Monese</a></th>
-<th><a href="https://n26.com" style="color:lightblue;" target="_blank">N26</a></th>
-<th><a href="https://www.curve.com" style="color:lightblue;" target="_blank">Curve</a></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Multi-Currency</td>
-<td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>❌</td>
-</tr>
-<tr>
-<td>Crypto Support</td>
-<td>✅</td><td>❌</td><td>❌</td><td>❌</td><td>⚠️</td>
-</tr>
-<tr>
-<td>Free Card</td>
-<td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td>
-</tr>
-<tr>
-<td>IBAN Provided</td>
-<td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>❌</td>
-</tr>
-<tr>
-<td>App Experience</td>
-<td>⭐⭐⭐⭐☆</td><td>⭐⭐⭐⭐☆</td><td>⭐⭐⭐☆☆</td><td>⭐⭐⭐⭐☆</td><td>⭐⭐⭐☆☆</td>
-</tr>
-</tbody>
-</table></div>
-</main>
-<footer>
-<p class="disclaimer">This website contains affiliate links. If you click and make a purchase, we may earn a commission at no extra cost to you.</p>
-<p class="legal">WalletRadar.pro is not a financial institution and does not provide financial advice. Always do your own research before making financial decisions.</p>
-</footer>
-<script>
-function openModal(id) {
-    document.getElementById(id + "-modal").classList.add("active");
-}
-function closeModal(id) {
-    document.getElementById(id + "-modal").classList.remove("active");
-}
-window.onclick = function(event) {
-    document.querySelectorAll('.modal.active').forEach(modal => {
-        if (event.target === modal) modal.classList.remove('active');
-    });
-};
-document.addEventListener("keydown", function(e) {
-    if (e.key === "Escape") {
-        document.querySelectorAll('.modal.active').forEach(modal => modal.classList.remove("active"));
-    }
-});
-</script>
-<div id="modals"><div class="modal" id="revolut-modal" style="display:none">
-<div class="modal-content">
-<span class="close" onclick="closeModal('revolut-modal')">×</span>
-<h2>Revolut</h2>
-<p><strong>Revolut</strong> is more than a bank – it’s a fintech super app. With multi-currency accounts, crypto access, budgeting tools, and instant global transfers, it’s ideal for travelers and digital nomads. It offers both free and premium accounts. Want to promote Revolut? You can join their affiliate program via Impact.com. Great for monetizing finance blogs or YouTube channels.</p>
-</div>
-</div><div class="modal" id="wise-modal" style="display:none">
-<div class="modal-content">
-<span class="close" onclick="closeModal('wise-modal')">×</span>
-<h2>Wise</h2>
-<p><strong>Wise</strong> (formerly TransferWise) is designed for affordable international money transfers. Their borderless account supports over 50 currencies and offers real mid-market exchange rates. If you're new to fintech or looking to save on fees, Wise is a solid pick. Their affiliate program is also available on Impact.com and pays for referrals with verified transactions.</p>
-</div>
-</div><div class="modal" id="monese-modal" style="display:none">
-<div class="modal-content">
-<span class="close" onclick="closeModal('monese-modal')">×</span>
-<h2>Monese</h2>
-<p><strong>Monese</strong> provides instant-access accounts without proof of address. Great for expats, students, and frequent movers in Europe. Features include GBP and EUR accounts, mobile budgeting tools, and optional cards. Monetize your audience by joining Monese's affiliate program via Impact.com – ideal for international lifestyle creators.</p>
-</div>
-</div><div class="modal" id="n26-modal" style="display:none">
-<div class="modal-content">
-<span class="close" onclick="closeModal('n26-modal')">×</span>
-<h2>N26</h2>
-<p><strong>N26</strong> is a sleek, mobile-first bank based in Germany. It combines modern app UI with full banking features, including IBAN accounts, instant notifications, and smart savings. N26 is perfect for freelancers and EU residents. Their affiliate program is on Awin.com and offers attractive rewards per signup.</p>
-</div>
-</div><div class="modal" id="curve-modal" style="display:none">
-<div class="modal-content">
-<span class="close" onclick="closeModal('curve-modal')">×</span>
-<h2>Curve</h2>
-<p><strong>Curve</strong> lets you combine multiple bank cards into one and offers cashback, travel perks, and spending insights. A unique feature is ‘Go Back in Time’ to move past transactions. Curve is good for finance-savvy users who want control and rewards. Promote Curve through Awin.com’s affiliate platform.</p>
-</div>
-</div></div><script>
-function openModal(id) {
-    document.getElementById(id).style.display = 'block';
-}
-function closeModal(id) {
-    document.getElementById(id).style.display = 'none';
-}
-window.onclick = function(event) {
-    document.querySelectorAll('.modal').forEach(modal => {
-        if (event.target == modal) modal.style.display = 'none';
-    });
-}
-</script></body>
+  <div class="page">
+
+    <header class="header">
+      <div class="brand">WALLETRADAR</div>
+      <div class="tag">Modern banking alternatives</div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+      <div>
+        <h1 class="hero-title">Revolut – kortti joka toimii siellä, missä pankki laahaa perässä.</h1>
+        <p class="hero-sub">
+          Suomalainen pankki palkalle ja lainoille. Revolut kaikkeen muuhun:
+          arjen korttiostot, matkailu, valuutanvaihto ja nuorten kortti.
+        </p>
+        <div class="hero-cta">
+          <a class="btn" href="revolut.html">Avaa Revolut muutamassa minuutissa</a>
+          <a class="btn btn-outline" href="#why">Katso miksi käytän Revolutia</a>
+          <p class="hero-note">
+            Linkki ohjaa Revolutin viralliselle sivulle. Kampanjoiden aikana avaaja
+            voi saada bonuksen, jos tietyt ehdot täyttyvät (esim. kortin tilaus ja muutama ostos).
+          </p>
+        </div>
+      </div>
+
+      <aside class="hero-card">
+        <h2>Revolut käytännössä</h2>
+        <ul class="hero-list">
+          <li>✅ Ilmainen peruskäyttö, moderni sovellus</li>
+          <li>✅ Halvempi valuutanvaihto kuin useimmissa pankeissa</li>
+          <li>✅ Kortti Apple Payhin ja Google Walletiin heti</li>
+          <li>✅ Selkeä käyttö myös lapsille ja nuorille</li>
+        </ul>
+        <a class="btn btn-outline" href="revolut.html">Siirry Revolutiin</a>
+        <div class="chip"></div>
+      </aside>
+    </section>
+
+    <!-- WHY SECTION -->
+    <section id="why" class="section">
+      <h2>Miksi Revolut perinteisen pankkikortin rinnalle?</h2>
+      <p class="lead">
+        En korvaa suomalaista pankkia – pidän Revolutin rinnalla työkaluna,
+        joka on parempi tietyissä tilanteissa: reissut, nettikauppa, arjen
+        budjetointi ja lasten kortit.
+      </p>
+
+      <div class="grid">
+        <article class="feature">
+          <div class="badge">Matkailu & valuutat</div>
+          <h3>Halvempi ulkomailla kuin pankin Visa</h3>
+          <p>
+            Valuutanvaihto tapahtuu lähes markkinakurssilla ilman pankin omaa
+            piilomarginaalia. Käytännössä euro venyy pidemmälle, kun maksat
+            hotellit, lennot ja ravintolat Revolutilla.
+          </p>
+          <div class="pill-row">
+            <span class="pill">Reaaliaikainen kurssi</span>
+            <span class="pill">Ei erillistä matkakassaa</span>
+          </div>
+        </article>
+
+        <article class="feature">
+          <div class="badge">Arki & budjetointi</div>
+          <h3>Näet kulut heti – ei päivän viiveellä</h3>
+          <p>
+            Jokainen ostos näkyy sovelluksessa sekunneissa. Voit luoda säästötaskuja,
+            jakaa ostoksia kategorioihin ja seurata, mihin rahat oikeasti katoavat.
+          </p>
+          <div class="pill-row">
+            <span class="pill">Push-ilmoitukset</span>
+            <span class="pill">Säästötaskut</span>
+            <span class="pill">Kategorisointi</span>
+          </div>
+        </article>
+
+        <article class="feature">
+          <div class="badge">Perhe & nuoret</div>
+          <h3>Helppo kortti lapsille ja teineille</h3>
+          <p>
+            Voit asettaa kulurajoja, siirtää viikkorahaa sekunneissa ja
+            seurata käyttöä. Paljon kevyempi ratkaisu kuin yrittää pakottaa
+            nuoret käyttämään pankin kivikautista mobiilipankkia.
+          </p>
+          <div class="pill-row">
+            <span class="pill">Kulurajat</span>
+            <span class="pill">Taskuraha</span>
+            <span class="pill">Reaaliaikainen näkymä</span>
+          </div>
+        </article>
+      </div>
+
+      <!-- COMPARE BLOCK -->
+      <div class="compare">
+        <div>
+          <strong>Revolut ei ole “pankkikapina”.</strong>
+          <ul>
+            <li>Suomalainen pankki: palkka, lainat, talletussuoja.</li>
+            <li>Revolut: kortti, ostot, matkailu, valuutanvaihto, nuorten käyttö.</li>
+            <li>Yhdistelmä toimii paremmin kuin kumpikaan yksin.</li>
+          </ul>
+        </div>
+        <div class="compare-highlight">
+          <p>
+            Ajattelen Revolutia työkaluna, en ideologiana.  
+            Käytännön tasolla: jos voin maksaa samasta asiasta vähemmän
+            ja hallita rahaa paremmin sovelluksessa, käytän sitä.
+          </p>
+          <a class="btn btn-outline" href="revolut.html">Testaa Revolutia käytännössä</a>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <p>
+        WalletRadar ei ole Revolutin virallinen sivusto. Tämä on yksityishenkilön tekemä
+        neutraali esittely. Sivulla voi olla affiliate-linkkejä; jos avaat tilin linkin kautta,
+        sivun ylläpitäjä voi saada palkkion ilman lisäkustannusta sinulle.
+      </p>
+    </footer>
+
+  </div>
+</body>
 </html>
