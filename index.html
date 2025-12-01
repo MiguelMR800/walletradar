@@ -52,7 +52,7 @@
     .tag {
       font-size: .75rem;
       padding: .3rem .8rem;
-      border-radius: var(--radius-pill);
+      border-radius: 999px;
       border: 1px solid #27272a;
       color: var(--muted);
     }
@@ -130,30 +130,46 @@
     }
 
     .hero-card {
-      border-radius: var(--radius-card);
-      background:
-        radial-gradient(circle at top left, #111827, #020617 60%, #000000);
-      padding: 1.7rem 1.5rem 1.8rem;
-      border: 1px solid #27272a;
       position: relative;
+      border-radius: var(--radius-card);
+      background: radial-gradient(circle at top left, #020617, #000000 60%);
+      padding: 1.5rem;
+      border: 1px solid #27272a;
       overflow: hidden;
     }
+
+    /* lasinen “paneeli” tekstille */
+    .hero-card-glass {
+      position: relative;
+      z-index: 1;
+      background: rgba(15,23,42,0.82);
+      border-radius: 24px;
+      padding: 1.1rem 1.15rem 1.3rem;
+      border: 1px solid rgba(148,163,184,0.22);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+    }
+
     .chip {
       position: absolute;
-      right: -60px;
-      bottom: -80px;
+      right: -90px;
+      bottom: -60px;
       width: 260px;
       height: 260px;
       background: conic-gradient(from 210deg,
         #22c55e, #22d3ee, #6366f1, #8b5cf6, #22c55e);
-      opacity: .9;
-      filter: blur(10px);
+      opacity: .55;
+      filter: blur(18px);
       transform: translate3d(0,0,0);
-      transition: transform .6s cubic-bezier(.22,.61,.36,1);
+      transition: transform .6s cubic-bezier(.22,.61,.36,1), opacity .2s ease-out;
+      z-index: 0;
     }
+
     .hero-card:hover .chip {
-      transform: translate3d(-8px,-6px,0);
+      transform: translate3d(-6px,-4px,0);
+      opacity: .7;
     }
+
     .hero-card h2 {
       font-size: 1.15rem;
       margin: 0 0 .7rem;
@@ -346,7 +362,6 @@
           arjen korttiostot, matkailu, valuutanvaihto ja nuorten kortti.
         </p>
         <div class="hero-cta">
-          <!-- tämä voi mennä edelleen revolut.html -redirectin kautta -->
           <a class="btn" href="revolut.html">
             Avaa Revolut muutamassa minuutissa
           </a>
@@ -359,21 +374,22 @@
       </div>
 
       <aside class="hero-card reveal reveal-right">
-        <h2>Revolut käytännössä</h2>
-        <ul class="hero-list">
-          <li>✅ Ilmainen peruskäyttö, moderni sovellus</li>
-          <li>✅ Halvempi valuutanvaihto kuin useimmissa pankeissa</li>
-          <li>✅ Kortti Apple Payhin ja Google Walletiin heti</li>
-          <li>✅ Selkeä käyttö myös lapsille ja nuorille</li>
-        </ul>
-        <!-- suora affiliatelinkki -->
-        <a
-          class="btn btn-outline"
-          href="https://revolut.com/referral/?referral-code=miikkar80!DEC1-25-AR&geo-redirect"
-          target="_blank"
-        >
-          Siirry Revolutiin
-        </a>
+        <div class="hero-card-glass">
+          <h2>Revolut käytännössä</h2>
+          <ul class="hero-list">
+            <li>✅ Ilmainen peruskäyttö, moderni sovellus</li>
+            <li>✅ Halvempi valuutanvaihto kuin useimmissa pankeissa</li>
+            <li>✅ Kortti Apple Payhin ja Google Walletiin heti</li>
+            <li>✅ Selkeä käyttö myös lapsille ja nuorille</li>
+          </ul>
+          <a
+            class="btn btn-outline"
+            href="https://revolut.com/referral/?referral-code=miikkar80!DEC1-25-AR&geo-redirect"
+            target="_blank"
+          >
+            Siirry Revolutiin
+          </a>
+        </div>
         <div class="chip"></div>
       </aside>
     </section>
@@ -535,7 +551,6 @@
       const items = document.querySelectorAll('.reveal');
 
       if (!('IntersectionObserver' in window) || items.length === 0) {
-        // Fallback: näytä kaikki ilman animaatioita
         items.forEach(el => el.classList.add('is-visible'));
         return;
       }
