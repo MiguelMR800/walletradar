@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <title>WalletRadar – Revolut kortti ja moderni pankkivaihtoehto</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="WalletRadar: neutraali suomenkielinen esittely Revolutista – moderni pankkisovellus matkailuun, arkeen ja nuorille.">
+  <meta name="description" content="WalletRadar: suomenkielinen, henkilökohtainen esittely Revolutista – moderni kortti matkailuun ja arkeen.">
   <style>
     :root {
       --bg: #000000;
@@ -138,7 +138,6 @@
       overflow: hidden;
     }
 
-    /* lasinen “paneeli” tekstille */
     .hero-card-glass {
       position: relative;
       z-index: 1;
@@ -358,36 +357,39 @@
       <div class="reveal reveal-left">
         <h1 class="hero-title">Revolut – kortti joka toimii siellä, missä pankki laahaa perässä.</h1>
         <p class="hero-sub">
-          Suomalainen pankki palkalle ja lainoille. Revolut kaikkeen muuhun:
-          arjen korttiostot, matkailu, valuutanvaihto ja nuorten kortti.
+          Palkka ja lainat pysyvät suomalaisessa pankissa. Revolutia käytän arjen ostoksiin,
+          matkoille, valuutanvaihtoon ja nuorten korteissa.
         </p>
-        <div class="hero-cta">
-          <a class="btn" href="revolut.html">
+        <div class="hero-cta" id="top-cta">
+          <a
+            id="revolut-linkki"
+            class="btn"
+            href="https://revolut.com/referral/?referral-code=miikkar80!DEC1-25-AR&geo-redirect"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             Avaa Revolut muutamassa minuutissa
           </a>
-          <a class="btn btn-outline" href="#why">Katso miksi käytän Revolutia</a>
+          <a class="btn btn-outline" href="#why">Katso ensin miksi käytän Revolutia</a>
           <p class="hero-note">
-            Linkki ohjaa Revolutin viralliselle sivulle. Kampanjoiden aikana avaaja
-            voi saada bonuksen, jos tietyt ehdot täyttyvät (esim. kortin tilaus ja muutama ostos).
+            Mainoslinkki: jos avaat Revolut-tilin tämän napin kautta ja tilaat kortin,
+            Revolut voi maksaa meille molemmille pienen bonuksen. Sinulle hinta on sama
+            kuin suoraan Revolutin sivuilta.
           </p>
         </div>
       </div>
 
       <aside class="hero-card reveal reveal-right">
         <div class="hero-card-glass">
-          <h2>Revolut käytännössä</h2>
+          <h2>Miltä Revolut näyttää käytännössä?</h2>
           <ul class="hero-list">
-            <li>✅ Ilmainen peruskäyttö, moderni sovellus</li>
-            <li>✅ Halvempi valuutanvaihto kuin useimmissa pankeissa</li>
-            <li>✅ Kortti Apple Payhin ja Google Walletiin heti</li>
-            <li>✅ Selkeä käyttö myös lapsille ja nuorille</li>
+            <li>✅ Sovellus näyttää ostot sekunneissa, ei päivää myöhemmin</li>
+            <li>✅ Valuutanvaihto tapahtuu lähes markkinakurssilla</li>
+            <li>✅ Kortin saa heti Apple Payhin ja Google Walletiin</li>
+            <li>✅ Nuorille oma kortti, jota voi seurata livenä</li>
           </ul>
-          <a
-            class="btn btn-outline"
-            href="https://revolut.com/referral/?referral-code=miikkar80!DEC1-25-AR&geo-redirect"
-            target="_blank"
-          >
-            Siirry Revolutiin
+          <a class="btn btn-outline" href="#why">
+            Lue perustelut ennen kuin avaat tilin
           </a>
         </div>
         <div class="chip"></div>
@@ -397,54 +399,54 @@
     <!-- WHY SECTION -->
     <section id="why" class="section">
       <div class="reveal reveal-up">
-        <h2>Miksi Revolut perinteisen pankkikortin rinnalle?</h2>
+        <h2>Miksi pidän Revolutia pankkikortin rinnalla?</h2>
         <p class="lead">
-          En korvaa suomalaista pankkia – pidän Revolutin rinnalla työkaluna,
-          joka on parempi tietyissä tilanteissa: reissut, nettikauppa, arjen
-          budjetointi ja lasten kortit.
+          En ole vaihtanut pois suomalaisesta pankista. Revolut on minulle lisätyökalu:
+          erillinen “pelikenttä”, jota on turvallisempi käyttää netissä, reissuilla ja
+          nuorten kanssa kuin varsinaista pankkikorttia.
         </p>
       </div>
 
       <div class="grid">
         <article class="feature reveal reveal-left">
           <div class="badge">Matkailu & valuutat</div>
-          <h3>Halvempi ulkomailla kuin pankin Visa</h3>
+          <h3>Ulkomailla halvempi kuin pankin Visa</h3>
           <p>
-            Valuutanvaihto tapahtuu lähes markkinakurssilla ilman pankin omaa
-            piilomarginaalia. Käytännössä euro venyy pidemmälle, kun maksat
-            hotellit, lennot ja ravintolat Revolutilla.
+            Kun maksan hotellit ja ravintolat Revolutilla, valuutanvaihto tapahtuu
+            lähes markkinakurssilla ilman pankin piilomarginaalia. Pitkällä reissulla
+            eroa kertyy oikeasti euroissa.
           </p>
           <div class="pill-row">
-            <span class="pill">Reaaliaikainen kurssi</span>
+            <span class="pill">Lähellä markkinakurssia</span>
             <span class="pill">Ei erillistä matkakassaa</span>
           </div>
         </article>
 
         <article class="feature reveal reveal-up">
           <div class="badge">Arki & budjetointi</div>
-          <h3>Näet kulut heti – ei päivän viiveellä</h3>
+          <h3>Näet heti, mihin raha oikeasti menee</h3>
           <p>
-            Jokainen ostos näkyy sovelluksessa sekunneissa. Voit luoda säästötaskuja,
-            jakaa ostoksia kategorioihin ja seurata, mihin rahat oikeasti katoavat.
+            Jokainen ostos pingaa puhelimeen heti. Teen erillisiä “kuoria” ruualle,
+            polttoaineelle ja reissuille, jolloin näen selkeästi, mikä vie eniten rahaa.
           </p>
           <div class="pill-row">
             <span class="pill">Push-ilmoitukset</span>
-            <span class="pill">Säästötaskut</span>
-            <span class="pill">Kategorisointi</span>
+            <span class="pill">Omat “kuoret” kuluille</span>
+            <span class="pill">Selkeä kuukausiyhteenveto</span>
           </div>
         </article>
 
         <article class="feature reveal reveal-right">
           <div class="badge">Perhe & nuoret</div>
-          <h3>Helppo kortti lapsille ja teineille</h3>
+          <h3>Kevyt tapa antaa nuorille oma kortti</h3>
           <p>
-            Voit asettaa kulurajoja, siirtää viikkorahaa sekunneissa ja
-            seurata käyttöä. Paljon kevyempi ratkaisu kuin yrittää pakottaa
-            nuoret käyttämään pankin kivikautista mobiilipankkia.
+            Revolutin kautta voin ladata viikkorahaa sekunneissa, asettaa kulurajat ja
+            tarkistaa nopeasti, mihin raha on mennyt. Nuorelle tämä on paljon
+            modernimpi vaihtoehto kuin perinteinen pankkikortti ja paperinen tiliote.
           </p>
           <div class="pill-row">
             <span class="pill">Kulurajat</span>
-            <span class="pill">Taskuraha</span>
+            <span class="pill">Taskuraha sekunneissa</span>
             <span class="pill">Reaaliaikainen näkymä</span>
           </div>
         </article>
@@ -453,21 +455,20 @@
       <!-- COMPARE BLOCK -->
       <div class="compare reveal reveal-up">
         <div>
-          <strong>Revolut ei ole “pankkikapina”.</strong>
+          <strong>Revolut ei ole pankkikapina, vaan työkalu.</strong>
           <ul>
             <li>Suomalainen pankki: palkka, lainat, talletussuoja.</li>
-            <li>Revolut: kortti, ostot, matkailu, valuutanvaihto, nuorten käyttö.</li>
-            <li>Yhdistelmä toimii paremmin kuin kumpikaan yksin.</li>
+            <li>Revolut: kortti, ostot, matkailu, valuutanvaihto, nuorten kortit.</li>
+            <li>Yhdessä ne toimivat paremmin kuin kumpikaan yksin.</li>
           </ul>
         </div>
         <div class="compare-highlight">
           <p>
-            Ajattelen Revolutia työkaluna, en ideologiana.
-            Käytännön tasolla: jos voin maksaa samasta asiasta vähemmän
-            ja hallita rahaa paremmin sovelluksessa, käytän sitä.
+            Oma ajatusmalli on yksinkertainen: jos sama asia maksaa vähemmän ja
+            käyttö on helpompaa, käytän sitä arjessa. Siksi Revolut kulkee pankkikortin rinnalla.
           </p>
-          <a class="btn btn-outline" href="revolut.html">
-            Testaa Revolutia käytännössä
+          <a class="btn btn-outline" href="#top-cta">
+            Palaa ylös ja avaa tili, jos tämä resonoi
           </a>
         </div>
       </div>
@@ -476,10 +477,10 @@
     <!-- KILPAILIJAVERTAILU -->
     <section id="compare-competitors" class="section">
       <div class="reveal reveal-up">
-        <h2>Miten Revolut eroaa kilpailijoista?</h2>
+        <h2>Miten Revolut eroaa muista korteista?</h2>
         <p class="lead">
-          Revolutin kanssa kilpailee muutama moderni toimija – mutta Suomessa niistä
-          yksikään ei tarjoa yhtä laajaa arjen + matkailun kokonaisuutta yhdellä kortilla.
+          Suomessa on muutama muu “moderni” toimija, mutta ainakaan omassa arjessa
+          mikään niistä ei ole tarjonnut yhtä selkeää kokonaisuutta yhdellä kortilla.
         </p>
       </div>
 
@@ -487,15 +488,15 @@
         <div>
           <strong>Revolut vs. Wise</strong>
           <ul>
-            <li>Revolut: arjen kortti + säästöt + lapsikortit + matkat.</li>
-            <li>Wise: käytännössä vain valuutanvaihtoon, ei arkikortiksi Suomessa.</li>
-            <li>Revolut toimii Apple Pay / Google Pay heti – Wise ei aina.</li>
+            <li>Revolut: arjen kortti, säästöt, lapsikortit ja matkat samassa paketissa.</li>
+            <li>Wise: hyvä valuutanvaihtoon ja siirtoihin, mutta ei arjen pääkortiksi Suomessa.</li>
+            <li>Revolut toimii heti Apple Pay / Google Pay -lompakoissa.</li>
           </ul>
         </div>
         <div class="compare-highlight">
           <p>
-            Jos haluat yhden kortin arkeen ja reissuille, Revolut on loogisempi valinta.
-            Wise on kapea työkalu pelkkään rahansiirtoon ja kurssien seuraamiseen.
+            Näen Wisen enemmän “siirtokoneena” ja Revolutin arjen käyttötilinä ja
+            korttina. Molemmille on paikkansa, mutta ne eivät korvaa toisiaan.
           </p>
         </div>
       </div>
@@ -504,15 +505,15 @@
         <div>
           <strong>Revolut vs. N26</strong>
           <ul>
-            <li>N26 ei toimi enää Suomessa normaalisti (pankkitunnistus + rajaukset).</li>
-            <li>Revolut tukee suomalaisia numeroita, osoitteita ja toimii täysillä.</li>
+            <li>N26 ei käytännössä enää toimi Suomessa normaalina arjen pankkina.</li>
+            <li>Revolut tukee suomalaisia numeroita ja osoitteita, ja kortti toimii ilman kikkailua.</li>
             <li>N26 ei tarjoa nuorten korttia Suomen markkinaan.</li>
           </ul>
         </div>
         <div class="compare-highlight">
           <p>
-            N26 on käytännössä poistunut Suomen kartalta. Revolut on ainoa laajasti
-            toimiva moderni kortti-appi tällä hetkellä.
+            N26 oli hetken kiinnostava, mutta käytännössä se on poistunut kartalta.
+            Revolut on ainoa, jota pystyn suosittelemaan normikäyttöön täällä.
           </p>
         </div>
       </div>
@@ -521,15 +522,16 @@
         <div>
           <strong>Revolut vs. suomalaiset pankit</strong>
           <ul>
-            <li>Pankit: korkeat valuutanvaihtomarginaalit + raskas mobiilipankki.</li>
-            <li>Revolut: reaaliaikaiset ostot, parempi kurssi, nopeampi sovellus.</li>
-            <li>Pankit palkalle ja lainoille – Revolut kaikkeen muuhun.</li>
+            <li>Pankit: kalliimpi valuutanvaihto ja raskaampi mobiilipankki.</li>
+            <li>Revolut: nopea sovellus, parempi kurssi, selkeämpi käyttö arjessa.</li>
+            <li>Palkka ja lainat pankissa – käyttö- ja matkakortti Revolutissa.</li>
           </ul>
         </div>
         <div class="compare-highlight">
           <p>
-            Yhdistelmä on järkevä: suomalainen pankki selkärankana, Revolut käyttö- ja
-            matkakorttina. Vähemmän kuluja, enemmän kontrollia.
+            Oma ratkaisu on kompromissi: en ota riskiä talletussuojan kanssa,
+            mutta en myöskään maksa turhia valuuttakuluja. Pankki hoitaa selkärangan,
+            Revolut hoitaa käytön.
           </p>
         </div>
       </div>
@@ -538,8 +540,8 @@
     <footer>
       <p>
         WalletRadar ei ole Revolutin virallinen sivusto. Tämä on yksityishenkilön tekemä
-        neutraali esittely. Sivulla voi olla affiliate-linkkejä; jos avaat tilin linkin kautta,
-        sivun ylläpitäjä voi saada palkkion ilman lisäkustannusta sinulle.
+        rehellinen kuvaus omasta käytöstä. Sivulla on yksi affiliate-linkki Revolutiin:
+        jos avaat tilin sen kautta, sivun ylläpitäjä voi saada palkkion ilman lisäkustannusta sinulle.
       </p>
     </footer>
 
