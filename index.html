@@ -44,15 +44,15 @@
     }
     .brand {
       font-weight: 700;
-      letter-spacing: .04em;
-      font-size: .85rem;
+      letter-spacing: .08em;
+      font-size: .9rem;
       text-transform: uppercase;
       color: var(--muted);
     }
     .tag {
       font-size: .75rem;
       padding: .3rem .8rem;
-      border-radius: 999px;
+      border-radius: var(--radius-pill);
       border: 1px solid #27272a;
       color: var(--muted);
     }
@@ -68,30 +68,30 @@
     }
 
     .hero-title {
-      font-size: clamp(2rem, 4vw, 2.8rem);
+      font-size: clamp(2.2rem, 4vw, 2.9rem);
       line-height: 1.05;
       letter-spacing: -0.05em;
-      margin-bottom: .75rem;
+      margin-bottom: .9rem;
     }
 
     .hero-sub {
-      font-size: .98rem;
+      font-size: 1rem;
       color: var(--muted);
-      max-width: 24rem;
+      max-width: 26rem;
     }
 
     .hero-cta {
-      margin-top: 1.5rem;
+      margin-top: 1.6rem;
       display: flex;
       flex-direction: column;
-      gap: .5rem;
+      gap: .6rem;
     }
 
     .btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      padding: .8rem 1.6rem;
+      padding: .9rem 1.8rem;
       border-radius: var(--radius-pill);
       border: 1px solid #27272a;
       background: #ffffff;
@@ -99,11 +99,16 @@
       font-size: .95rem;
       font-weight: 600;
       cursor: pointer;
-      transition: transform .08s ease, box-shadow .08s ease, background .12s ease, color .12s ease;
+      transition:
+        transform .12s ease,
+        box-shadow .12s ease,
+        background .12s ease,
+        color .12s ease,
+        border-color .12s ease;
       white-space: nowrap;
     }
     .btn:hover {
-      transform: translateY(-1px);
+      transform: translateY(-1.5px);
       box-shadow: 0 18px 45px rgba(15,23,42,.55);
     }
 
@@ -114,92 +119,94 @@
     }
     .btn-outline:hover {
       background: #111827;
+      border-color: #52525b;
     }
 
     .hero-note {
-      font-size: .75rem;
+      font-size: .78rem;
       color: var(--muted);
       max-width: 26rem;
+      line-height: 1.5;
     }
 
     .hero-card {
       border-radius: var(--radius-card);
-      background: radial-gradient(circle at top left, #111827, #020617 60%, #000000);
-      padding: 1.6rem 1.4rem;
+      background:
+        radial-gradient(circle at top left, #111827, #020617 60%, #000000);
+      padding: 1.7rem 1.5rem 1.8rem;
       border: 1px solid #27272a;
       position: relative;
       overflow: hidden;
     }
-
-    /* Uusi pehmeä väriglobi */
     .chip {
       position: absolute;
       right: -60px;
-      bottom: -60px;
-      width: 340px;
-      height: 340px;
-      background: radial-gradient(
-        circle at center,
-        rgba(34,197,94,0.35),
-        rgba(34,211,238,0.28),
-        rgba(99,102,241,0.22),
-        rgba(0,0,0,0)
-      );
-      filter: blur(38px);
-      opacity: 0.9;
+      bottom: -80px;
+      width: 260px;
+      height: 260px;
+      background: conic-gradient(from 210deg,
+        #22c55e, #22d3ee, #6366f1, #8b5cf6, #22c55e);
+      opacity: .9;
+      filter: blur(10px);
+      transform: translate3d(0,0,0);
+      transition: transform .6s cubic-bezier(.22,.61,.36,1);
     }
-
+    .hero-card:hover .chip {
+      transform: translate3d(-8px,-6px,0);
+    }
     .hero-card h2 {
-      font-size: 1.05rem;
-      margin: 0 0 .6rem;
+      font-size: 1.15rem;
+      margin: 0 0 .7rem;
     }
     .hero-list {
       list-style: none;
       padding: 0;
-      margin: 0 0 1.2rem;
-      font-size: .9rem;
+      margin: 0 0 1.4rem;
+      font-size: .95rem;
     }
     .hero-list li {
-      margin-bottom: .35rem;
+      margin-bottom: .45rem;
       color: var(--muted);
     }
 
     /* Sections */
     .section {
-      padding: 2.5rem 0 0;
+      padding: 3rem 0 0;
     }
     .section h2 {
-      font-size: 1.4rem;
-      margin-bottom: .6rem;
+      font-size: clamp(1.7rem, 3vw, 2rem);
+      margin-bottom: .7rem;
+      letter-spacing: -.03em;
     }
     .section p.lead {
       color: var(--muted);
       max-width: 32rem;
-      font-size: .9rem;
+      font-size: .92rem;
+      line-height: 1.55;
     }
 
     .grid {
       display: grid;
       grid-template-columns: repeat(3,minmax(0,1fr));
-      gap: 1.2rem;
-      margin-top: 1.8rem;
+      gap: 1.3rem;
+      margin-top: 1.9rem;
     }
 
     .feature {
-      border-radius: 20px;
-      padding: 1.1rem 1.1rem 1.2rem;
+      border-radius: 22px;
+      padding: 1.2rem 1.15rem 1.35rem;
       background: #050508;
       border: 1px solid #18181b;
       font-size: .9rem;
     }
     .feature h3 {
-      font-size: .98rem;
-      margin: 0 0 .4rem;
+      font-size: 1.02rem;
+      margin: 0 0 .5rem;
     }
     .feature p {
       margin: 0;
       color: var(--muted);
-      line-height: 1.4;
+      line-height: 1.45;
     }
 
     .badge {
@@ -207,20 +214,20 @@
       align-items: center;
       border-radius: 999px;
       font-size: .7rem;
-      padding: .15rem .55rem;
+      padding: .18rem .6rem;
       background: #111827;
       color: var(--muted);
-      margin-bottom: .45rem;
+      margin-bottom: .5rem;
     }
 
     .pill-row {
       display: flex;
       flex-wrap: wrap;
-      gap: .4rem;
+      gap: .45rem;
       margin-top: .9rem;
     }
     .pill {
-      padding: .25rem .7rem;
+      padding: .28rem .8rem;
       border-radius: 999px;
       border: 1px solid #27272a;
       font-size: .75rem;
@@ -229,21 +236,22 @@
 
     /* Compare strip */
     .compare {
-      margin-top: 2.2rem;
+      margin-top: 2.3rem;
       border-radius: 24px;
       border: 1px solid #18181b;
-      padding: 1.2rem 1.2rem 1.3rem;
+      padding: 1.25rem 1.25rem 1.4rem;
       background: #050508;
       font-size: .86rem;
       display: grid;
       grid-template-columns: minmax(0,1.1fr) minmax(0,1.3fr);
       gap: 1rem;
-      align-items: center;
+      align-items: flex-start;
     }
     .compare ul {
-      margin: .35rem 0 0;
+      margin: .4rem 0 0;
       padding-left: 1.1rem;
       color: var(--muted);
+      line-height: 1.45;
     }
     .compare strong { color: #f9fafb; }
 
@@ -254,11 +262,49 @@
 
     /* Footer */
     footer {
-      margin-top: 3rem;
+      margin-top: 3.2rem;
       border-top: 1px solid #18181b;
       padding-top: 1.2rem;
       font-size: .75rem;
       color: var(--muted);
+      line-height: 1.5;
+    }
+
+    /* Scroll reveal animations */
+    .reveal {
+      opacity: 0;
+      transform: translate3d(0, 20px, 0);
+      transition:
+        opacity .6s ease-out,
+        transform .7s cubic-bezier(.22,.61,.36,1);
+      will-change: transform, opacity;
+    }
+    .reveal-left {
+      transform: translate3d(-28px, 12px, 0);
+    }
+    .reveal-right {
+      transform: translate3d(28px, 12px, 0);
+    }
+    .reveal-up {
+      transform: translate3d(0, 26px, 0);
+    }
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translate3d(0,0,0);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .reveal,
+      .reveal-left,
+      .reveal-right,
+      .reveal-up {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+      }
+      .chip {
+        transition: none;
+      }
     }
 
     @media (max-width: 860px) {
@@ -293,14 +339,17 @@
 
     <!-- HERO -->
     <section class="hero">
-      <div>
+      <div class="reveal reveal-left">
         <h1 class="hero-title">Revolut – kortti joka toimii siellä, missä pankki laahaa perässä.</h1>
         <p class="hero-sub">
           Suomalainen pankki palkalle ja lainoille. Revolut kaikkeen muuhun:
           arjen korttiostot, matkailu, valuutanvaihto ja nuorten kortti.
         </p>
         <div class="hero-cta">
-          <a class="btn" href="revolut.html">Avaa Revolut muutamassa minuutissa</a>
+          <!-- tämä voi mennä edelleen revolut.html -redirectin kautta -->
+          <a class="btn" href="revolut.html">
+            Avaa Revolut muutamassa minuutissa
+          </a>
           <a class="btn btn-outline" href="#why">Katso miksi käytän Revolutia</a>
           <p class="hero-note">
             Linkki ohjaa Revolutin viralliselle sivulle. Kampanjoiden aikana avaaja
@@ -309,7 +358,7 @@
         </div>
       </div>
 
-      <aside class="hero-card">
+      <aside class="hero-card reveal reveal-right">
         <h2>Revolut käytännössä</h2>
         <ul class="hero-list">
           <li>✅ Ilmainen peruskäyttö, moderni sovellus</li>
@@ -317,22 +366,31 @@
           <li>✅ Kortti Apple Payhin ja Google Walletiin heti</li>
           <li>✅ Selkeä käyttö myös lapsille ja nuorille</li>
         </ul>
-        <a class="btn btn-outline" href="revolut.html">Siirry Revolutiin</a>
+        <!-- suora affiliatelinkki -->
+        <a
+          class="btn btn-outline"
+          href="https://revolut.com/referral/?referral-code=miikkar80!DEC1-25-AR&geo-redirect"
+          target="_blank"
+        >
+          Siirry Revolutiin
+        </a>
         <div class="chip"></div>
       </aside>
     </section>
 
     <!-- WHY SECTION -->
     <section id="why" class="section">
-      <h2>Miksi Revolut perinteisen pankkikortin rinnalle?</h2>
-      <p class="lead">
-        En korvaa suomalaista pankkia – pidän Revolutin rinnalla työkaluna,
-        joka on parempi tietyissä tilanteissa: reissut, nettikauppa, arjen
-        budjetointi ja lasten kortit.
-      </p>
+      <div class="reveal reveal-up">
+        <h2>Miksi Revolut perinteisen pankkikortin rinnalle?</h2>
+        <p class="lead">
+          En korvaa suomalaista pankkia – pidän Revolutin rinnalla työkaluna,
+          joka on parempi tietyissä tilanteissa: reissut, nettikauppa, arjen
+          budjetointi ja lasten kortit.
+        </p>
+      </div>
 
       <div class="grid">
-        <article class="feature">
+        <article class="feature reveal reveal-left">
           <div class="badge">Matkailu & valuutat</div>
           <h3>Halvempi ulkomailla kuin pankin Visa</h3>
           <p>
@@ -346,7 +404,7 @@
           </div>
         </article>
 
-        <article class="feature">
+        <article class="feature reveal reveal-up">
           <div class="badge">Arki & budjetointi</div>
           <h3>Näet kulut heti – ei päivän viiveellä</h3>
           <p>
@@ -360,7 +418,7 @@
           </div>
         </article>
 
-        <article class="feature">
+        <article class="feature reveal reveal-right">
           <div class="badge">Perhe & nuoret</div>
           <h3>Helppo kortti lapsille ja teineille</h3>
           <p>
@@ -377,7 +435,7 @@
       </div>
 
       <!-- COMPARE BLOCK -->
-      <div class="compare">
+      <div class="compare reveal reveal-up">
         <div>
           <strong>Revolut ei ole “pankkikapina”.</strong>
           <ul>
@@ -388,24 +446,28 @@
         </div>
         <div class="compare-highlight">
           <p>
-            Ajattelen Revolutia työkaluna, en ideologiana.  
+            Ajattelen Revolutia työkaluna, en ideologiana.
             Käytännön tasolla: jos voin maksaa samasta asiasta vähemmän
             ja hallita rahaa paremmin sovelluksessa, käytän sitä.
           </p>
-          <a class="btn btn-outline" href="revolut.html">Testaa Revolutia käytännössä</a>
+          <a class="btn btn-outline" href="revolut.html">
+            Testaa Revolutia käytännössä
+          </a>
         </div>
       </div>
     </section>
 
     <!-- KILPAILIJAVERTAILU -->
     <section id="compare-competitors" class="section">
-      <h2>Miten Revolut eroaa kilpailijoista?</h2>
-      <p class="lead">
-        Revolutin kanssa kilpailee muutama moderni toimija – mutta Suomessa niistä
-        yksikään ei tarjoa yhtä laajaa arjen + matkailun kokonaisuutta yhdellä kortilla.
-      </p>
+      <div class="reveal reveal-up">
+        <h2>Miten Revolut eroaa kilpailijoista?</h2>
+        <p class="lead">
+          Revolutin kanssa kilpailee muutama moderni toimija – mutta Suomessa niistä
+          yksikään ei tarjoa yhtä laajaa arjen + matkailun kokonaisuutta yhdellä kortilla.
+        </p>
+      </div>
 
-      <div class="compare" style="margin-top:1.6rem;">
+      <div class="compare reveal reveal-left" style="margin-top:1.6rem;">
         <div>
           <strong>Revolut vs. Wise</strong>
           <ul>
@@ -417,12 +479,12 @@
         <div class="compare-highlight">
           <p>
             Jos haluat yhden kortin arkeen ja reissuille, Revolut on loogisempi valinta.
-            Wise on kapea työkalu pelkkään rahansiirtoon ja kursseihin.
+            Wise on kapea työkalu pelkkään rahansiirtoon ja kurssien seuraamiseen.
           </p>
         </div>
       </div>
 
-      <div class="compare" style="margin-top:1.6rem;">
+      <div class="compare reveal reveal-right" style="margin-top:1.6rem;">
         <div>
           <strong>Revolut vs. N26</strong>
           <ul>
@@ -433,13 +495,13 @@
         </div>
         <div class="compare-highlight">
           <p>
-            N26 on käytännössä poistunut Suomen kartalta.  
-            Revolut on ainoa laajasti toimiva moderni kortti-appi tällä hetkellä.
+            N26 on käytännössä poistunut Suomen kartalta. Revolut on ainoa laajasti
+            toimiva moderni kortti-appi tällä hetkellä.
           </p>
         </div>
       </div>
 
-      <div class="compare" style="margin-top:1.6rem;">
+      <div class="compare reveal reveal-up" style="margin-top:1.6rem;">
         <div>
           <strong>Revolut vs. suomalaiset pankit</strong>
           <ul>
@@ -450,8 +512,8 @@
         </div>
         <div class="compare-highlight">
           <p>
-            Yhdistelmä on järkevä: suomalainen pankki selkärankana,
-            Revolut käyttö- ja matkakorttina. Vähemmän kuluja, enemmän kontrollia.
+            Yhdistelmä on järkevä: suomalainen pankki selkärankana, Revolut käyttö- ja
+            matkakorttina. Vähemmän kuluja, enemmän kontrollia.
           </p>
         </div>
       </div>
@@ -466,5 +528,31 @@
     </footer>
 
   </div>
+
+  <!-- Kevyt scroll-reveal -skripti -->
+  <script>
+    (function () {
+      const items = document.querySelectorAll('.reveal');
+
+      if (!('IntersectionObserver' in window) || items.length === 0) {
+        // Fallback: näytä kaikki ilman animaatioita
+        items.forEach(el => el.classList.add('is-visible'));
+        return;
+      }
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.18
+      });
+
+      items.forEach(el => observer.observe(el));
+    })();
+  </script>
 </body>
 </html>
