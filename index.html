@@ -37,7 +37,6 @@
 
     * { box-sizing: border-box; }
 
-    /* UUSI WOW-TAUSTA */
     body {
       margin: 0;
       min-height: 100vh;
@@ -49,7 +48,6 @@
       overflow-x: hidden;
     }
 
-    /* Kerros 1: pehmeä perusgradientti */
     body::before {
       content: "";
       position: fixed;
@@ -64,7 +62,6 @@
       opacity: 0.9;
     }
 
-    /* Kerros 2: vihreä glow keskialueelle */
     body::after {
       content: "";
       position: fixed;
@@ -84,7 +81,6 @@
       opacity: 0.55;
     }
 
-    /* Kerros 3: violetti hehku alalaitaan */
     .gradient-bottom {
       position: fixed;
       bottom: -350px;
@@ -112,7 +108,6 @@
       padding: 1.25rem 1.25rem 3rem;
     }
 
-    /* Header */
     .header {
       display: flex;
       align-items: center;
@@ -137,7 +132,6 @@
       -webkit-backdrop-filter: blur(10px);
     }
 
-    /* Hero */
     .hero {
       display: grid;
       grid-template-columns: minmax(0,1.4fr) minmax(0,1.1fr);
@@ -185,7 +179,9 @@
         background .12s ease,
         color .12s ease,
         border-color .12s ease;
-      white-space: nowrap;
+      /* TÄRKEÄ MUUTOS: ei pakoteta tekstiä yhdelle riville */
+      /* white-space: nowrap; */
+      text-align: center;
     }
     .btn:hover {
       transform: translateY(-1.5px);
@@ -264,7 +260,6 @@
       color: var(--muted);
     }
 
-    /* Sections */
     .section {
       padding: 3rem 0 0;
     }
@@ -332,7 +327,6 @@
       background: rgba(15, 23, 42, 0.7);
     }
 
-    /* Compare strip */
     .compare {
       margin-top: 2.3rem;
       border-radius: 24px;
@@ -360,7 +354,6 @@
       padding-left: 1.2rem;
     }
 
-    /* Footer */
     footer {
       margin-top: 3.2rem;
       border-top: 1px solid #18181b;
@@ -373,7 +366,6 @@
       -webkit-backdrop-filter: blur(6px);
     }
 
-    /* Scroll reveal animations */
     .reveal {
       opacity: 0;
       transform: translate3d(0, 20px, 0);
@@ -429,11 +421,14 @@
         border-top: 1px solid #27272a;
         padding-top: 1rem;
       }
+      /* mobiilissa napit täysleveiksi ja siististi rivittyviksi */
+      .hero-cta .btn {
+        width: 100%;
+      }
     }
   </style>
 </head>
 <body>
-  <!-- Violetti hehku alareunaan -->
   <div class="gradient-bottom"></div>
 
   <div class="page">
@@ -443,7 +438,6 @@
       <div class="tag">Kortti pankin rinnalle</div>
     </header>
 
-    <!-- HERO -->
     <section class="hero">
       <div class="reveal reveal-left">
         <h1 class="hero-title">Revolut – kortti joka toimii siellä, missä pankki laahaa perässä.</h1>
@@ -543,7 +537,6 @@
         </article>
       </div>
 
-      <!-- COMPARE BLOCK -->
       <div class="compare reveal reveal-up">
         <div>
           <strong>Revolut ei ole pankkikapina, vaan työkalu.</strong>
@@ -565,7 +558,6 @@
       </div>
     </section>
 
-    <!-- KILPAILIJAVERTAILU -->
     <section id="compare-competitors" class="section">
       <div class="reveal reveal-up">
         <h2>Miten Revolut eroaa muista korteista?</h2>
@@ -638,7 +630,6 @@
 
   </div>
 
-  <!-- Kevyt scroll-reveal -skripti -->
   <script>
     (function () {
       const items = document.querySelectorAll('.reveal');
